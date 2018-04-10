@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game</title>
+</head>
+<body>
+<div id="game"></div>
+<script src="static/mui.js"></script>
+<script>
+  mui.plusReady(function(){
+    var wb=plus.webview.currentWebview()
+    var url=wb.url
+
+    mui.init({
+      subpages:[
+        {
+          url:url
+        }
+      ]
+    })
+    plus.key.addEventListener('backbutton', function() {
+      wb.canBack(function(e) {
+        console.log(e.canBack)
+        if(e.canBack) {
+          wb.back();
+        } else {
+          wb.close(); //hide,quit
+          //plus.runtime.quit();
+        }
+      })
+    })
+
+  })
+
+</script>
+</body>
+</html>
