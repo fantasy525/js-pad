@@ -70,8 +70,8 @@
           return this.$route.name !== undefined ? this.$route.name + +new Date() : this.$route + +new Date()
         },
         showNavBar(){
-          console.log(!(['/home'].indexOf(this.$route.path)>-1))
-          return !(['/home'].indexOf(this.$route.path)>-1)
+          console.log(!(['/home','/assess','/data'].indexOf(this.$route.path)>-1))
+          return !(['/home','/assess','/data'].indexOf(this.$route.path)>-1)
         }
       },
       components:{

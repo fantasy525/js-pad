@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
   .checkbox__original{
-   /* opacity: 0;
+    opacity: 0;
     outline: none;
     position: absolute;
     z-index: -1;
@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin: 0;*/
+    margin: 0;
   }
   .checkbox_wrap{
     label{
@@ -40,32 +40,29 @@
 </style>
 
 <template>
-  <label class="checkbox_wrap">
+  <span>
+    <label class="checkbox_wrap">
 
-    <label >Jack <input type="checkbox"  value="Jack" v-model="model"></label>
-
-    <label >John <input type="checkbox"  value="John" v-model="model"></label>
-
-    <label >Mike <input type="checkbox"  value="Mike" v-model="model"></label>
-    <!--<span class="checkbox_input" :class="{'is-checked':isChecked}">-->
-      <!--<span class="checkbox_inner" ></span>-->
-      <!--<input type="checkbox"-->
-             <!--v-if="trueLabel || falseLabel"-->
-             <!--class="checkbox__original"-->
-             <!--v-model="model"-->
-             <!--:true-value="trueLabel"-->
-             <!--:false-value="falseLabel"-->
-              <!--&gt;-->
-            <!--<input type="checkbox"-->
-                   <!--v-else-->
-                   <!--:value="label"-->
-                   <!--v-model="model"-->
-                   <!--ref="ipt"-->
-                   <!--class="checkbox__original"-->
-                   <!--&gt;-->
-    <!--</span>-->
-    <!--<span class="checkbox_label"><slot></slot></span>-->
+      <span class="checkbox_input" :class="{'is-checked':isChecked}">
+      <span class="checkbox_inner" ></span>
+      <input type="checkbox"
+        v-if="trueLabel || falseLabel"
+        class="checkbox__original"
+        v-model="model"
+        :true-value="trueLabel"
+        :false-value="falseLabel"
+      >
+      <input type="checkbox"
+        v-else
+        :value="label"
+        v-model="model"
+        ref="ipt"
+        class="checkbox__original"
+      >
+      </span>
+      <span class="checkbox_label"><slot></slot></span>
   </label>
+  </span>
 </template>
 
 <script>
@@ -74,7 +71,6 @@
       data(){
         return {
           selfModel:false,
-
         }
       },
       props:{
@@ -94,7 +90,7 @@
           },
           set(val){
           if(this.isGroup){
-            console.log(val)
+            console.log('val',val)
             this.$parent.$emit('groupSel',val)
           }else{
             this.$emit('input',val)

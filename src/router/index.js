@@ -7,13 +7,16 @@ const _import=require('./_import_'+process.env.NODE_ENV)
 const LayOut=_import('layout/layout')
 // appMain
 const AppMain=_import('layout/app-main')
-const menuRoutes=[
+export const menuRoutes=[
   {
     path: '/',
     name: 'Home',
     component: LayOut,
     menu:true,
     redirect:'/home',
+    meta:{
+      level:0
+    },
     children:[
       {
         name:'home',
@@ -22,7 +25,9 @@ const menuRoutes=[
         meta:{
           icon:'shouye',
           title:'首页',
-          canExit:true
+          canExit:true,
+          level:1,
+          isMenu:true
         }
       },
       {
@@ -32,7 +37,9 @@ const menuRoutes=[
         meta:{
           icon:'fanganguihua',
           title:'评估',
-          canExit:true
+          canExit:true,
+          level:1,
+          isMenu:true
         }
 
       },
@@ -43,7 +50,9 @@ const menuRoutes=[
         meta:{
           icon:'wxbbaobiao',
           title:'数据',
-          canExit:true
+          canExit:true,
+          level:1,
+          isMenu:true
         }
 
       },
@@ -54,17 +63,22 @@ const menuRoutes=[
         meta:{
           icon:'kexue',
           title:'科研',
-          canExit:true
+          canExit:true,
+          level:1,
+          isMenu:true
         }
 
-      },{
+      },
+      {
         name:'patient',
         path:'patient',
         component:_import('patient'),
         meta:{
           icon:'qunzu',
           title:'患者',
-          canExit:true
+          canExit:true,
+          level:1,
+          isMenu:true
         }
       }
     ]
@@ -73,23 +87,34 @@ const menuRoutes=[
 //区分一级界面，二级以外界面都是这个路由的子页面，因为要公用navbar中的面包屑导航
 const pageRoutes=[
   {
-    path:'/page',
+    path:'/main',//一级菜单的动态路径
     name:'page',
     component:AppMain,
     meta:{
       title:'',
     },
-    alias:'/',//用了别名时跳转的to属性和push时就可以不写/page,而写为/
     children:[
       {
         path:'assess_list/:menu',
-
         name:'assess_list',
-        component:_import('assess_list')
+        component:_import('assess_list'),
+        meta:{
+          level:2
+        }
       },{
-        path:'/test_list/:assess_item',
+        path:'test_list/:assess_item',
         name:'test_list',
-        component:_import('test_paper_list')
+        component:_import('test_paper_list'),
+        meta:{
+          level:3
+        }
+      },{
+         path:'patient_list/:id',
+          name:'patient_list',
+        component:_import('patient'),
+        meta:{
+          level:4
+        }
       }
     ]
   }

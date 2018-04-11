@@ -48,5 +48,16 @@ if (window.plus) {
 } else {
   document.addEventListener('plusready', plusReady, false);
 }
+class Plus{
+  constructor(){
+
+  }
+  init(){
+
+  }
+  listenButtonBack(){
+
+  }
+}
 
 

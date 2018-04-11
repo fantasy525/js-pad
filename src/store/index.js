@@ -9,32 +9,44 @@ Vue.use(Vuex)
 const store=new Vuex.Store({
   state:{
     navigationState:[],
+    isButtonNavigationState:true
 
   },
   getters:{
     navigations:state=>{
       return state.navigationState
+    },
+    isButtonNavigation:state=>{
+      return state.isButtonNavigationState
     }
   },
   mutations:{
+    buttonNav(state,payLoad){
+      state.isButtonNavigationState=payLoad.value
+    },
     [Types.addNavigation](state,payload){
-      if(state.navigationState.length>0&&state.navigationState[state.navigationState.length-1].name===payload.name) return
+
       state.navigationState.push({path:payload.path,name:payload.name})
     },
-    [Types.removeNavigation](state){
+    [Types.removeNavigation](state,payLoad){
       if(state.navigationState.length>0){
-        state.navigationState.pop()
+        console.log('state remove')
+        state.navigationState= state.navigationState.slice(0,payLoad.index)
       }
 
     }
   },
   actions:{
+    buttonNav({commit,state},payLoad){
+
+      commit('buttonNav',payLoad)
+    },
     [Types.addNavigation]({commit,state},payLoad){
 
       commit( Types.addNavigation,payLoad)
     },
-    [Types.removeNavigation]({commit,state}){
-      commit(Types.removeNavigation)
+    [Types.removeNavigation]({commit,state},payLoad){
+      commit(Types.removeNavigation,payLoad)
     }
   },
   strict:  process.env.NODE_ENV==='development',

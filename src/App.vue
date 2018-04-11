@@ -39,7 +39,9 @@
     <!-- <span class="mui-icon mui-icon-contact"></span>
     <img src="./assets/logo.png"> -->
     <transition name="fade" mode="out-in">
-      <router-view/>
+
+       <router-view/>
+
     </transition>
 
   </div>

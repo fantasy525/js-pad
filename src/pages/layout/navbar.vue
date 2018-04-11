@@ -1,17 +1,12 @@
 <template>
     <div class="navbar flex space-between align-center">
-
       <slot name="left"></slot>
       <slot name="middle"></slot>
       <slot name="right"></slot>
-
-
-
     </div>
 </template>
 
 <script>
-
     export default {
       name:'NavBar',
       created(){

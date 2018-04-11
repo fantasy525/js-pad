@@ -95,7 +95,9 @@
 </style>
 <template>
     <div class="home_view flex space-around">
-      <router-link :to="{path:'/assess_list/nao_jian_kang',query:{name:'脑健康评估'}}">
+      <nav-button
+        :to="{path:'/main/assess_list/nao_jian_kang',query:{name:'脑健康评估'}}"
+        >
         <div class="view_item view_item1 flex justify-center align-center">
           <img :src="require('../../static/img/nao.png')">
           <div class="item_text">
@@ -104,7 +106,7 @@
         </div>
           <icon-fontClass iconName="gengduo-2" class="button-more"></icon-fontClass>
         </div>
-      </router-link>
+      </nav-button>
      <router-link to="/">
        <div class="view_item view_item2">
          <div class="item_text">
@@ -118,7 +120,7 @@
          <icon-fontClass iconName="gengduo-2" class="button-more"></icon-fontClass>
        </div>
      </router-link>
-      <router-link :to="{path:'/assess_list/ren_zhi',query:{name:'认知障碍筛查'}}">
+      <router-link :to="{path:'/main/assess_list/ren_zhi',query:{name:'认知障碍筛查'}}">
         <div class="view_item view_middle">
           <img class="view_item_img" :src="require('../../static/img/home1.png')" >
           <div class="item_text">
@@ -128,7 +130,7 @@
           </div>
         </div>
       </router-link >
-      <router-link :to="{path:'/assess_list/chi_dai',query:{name:'痴呆筛查'}}">
+      <router-link :to="{path:'/main/assess_list/chi_dai',query:{name:'痴呆筛查'}}">
         <div class="view_item view_middle">
           <img :src="require('../../static/img/home2.png')" >
           <div class="item_text">
@@ -163,7 +165,10 @@
 </template>
 
 <script>
+    import NavButton from "../components/router-link/src/index.vue";
+    import {mapGetters} from 'vuex'
     export default {
+      components: {NavButton},
       name:'Home',
       created(){
 
@@ -171,7 +176,11 @@
       mounted(){
 
       },
+      computed:{
+        ...mapGetters(['isButtonNavigation'])
+      },
       methods:{
+
         go(){
           mui.openWindow({
             url:'./game.html',
@@ -186,14 +195,16 @@
         }
       },
       beforeRouteEnter(to,from,next){
-        console.log('home enter')
-        next(vm=>{
-          vm.$store.dispatch('addNavigation',{path:to.path,name:to.meta.title})
-        })
+        next()
+//        console.log('home enter')
+//        next(vm=>{
+//          vm.$store.dispatch('addNavigation',{path:to.path,name:to.meta.title})
+//        })
       },
       beforeRouteLeave(to,from,next){
 
-        console.log('home leave')
+        console.log('home leave',this.$store.getters.isButtonNavigation)
+
         next()
       }
     }

@@ -80,9 +80,9 @@
     <div>
       <template v-if="isAssess">
         <div class="assess_list flex" ref="list">
-          <router-link
+          <nav-button
             class="list_item router_link_keydown"
-            :to="{path:'/test_list/'+index,query:{name:item.title}}"
+            :to="{path:'/main/test_list/'+index,query:{name:item.title}}"
             v-for="(item,index) in lists"
             :key="index"
 
@@ -99,7 +99,7 @@
                 {{item.detail}}
               </section>
             </div>
-          </router-link>
+          </nav-button>
         </div>
       </template>
       <div v-else class="game_trains">
@@ -152,7 +152,7 @@
        const data=require('../mock/assessL_list.json')
         this.lists=data[this.$route.params.menu]
         this.type=this.$route.params.menu
-        console.log(this.type)
+
         console.log('assess_list created')
       },
       mounted(){
@@ -162,15 +162,11 @@
       },
       beforeRouteEnter(to,from,next){
         console.log('assess_list进入')
-        next(vm=>{
-          vm.$store.dispatch('addNavigation',{path:vm.$route.path,name:vm.$route.query.name})
-        })
+        next()
       },
       beforeRouteLeave(to,from,next){
         console.log('assess leave to=',to.name)
-        if(to.name!=='test_list'){
-          this.$store.dispatch('removeNavigation')
-        }
+
 
         next()
       }
