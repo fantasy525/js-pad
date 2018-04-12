@@ -33,7 +33,7 @@ export const menuRoutes=[
       {
         name:'assess',
         path:'assess',
-        component:_import('assess'),
+        component:_import('assess/assess'),
         meta:{
           icon:'fanganguihua',
           title:'评估',
@@ -41,7 +41,6 @@ export const menuRoutes=[
           level:1,
           isMenu:true
         }
-
       },
       {
         name:'data',
@@ -110,10 +109,17 @@ const pageRoutes=[
         }
       },{
          path:'patient_list/:id',
-          name:'patient_list',
-        component:_import('patient'),
-        meta:{
+         name:'patient_list',
+         component:_import('patient'),
+         meta:{
           level:4
+         }
+      },
+      {
+        name:'tools',
+        path:'tools',
+        component:_import('assess/tools'),
+        meta:{
         }
       }
     ]

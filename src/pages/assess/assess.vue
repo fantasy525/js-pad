@@ -74,20 +74,20 @@
                 <ul class="flex item_list space-between justify-center">
                   <li>
                     <nav-button :to="{path:'/main/test_list/0',query:{name:'基础脑健康评估'}}">
-                      <img :src="require('../../static/img/assess_list1.png')">
+                      <img :src="require('../../../static/img/assess_list1.png')">
                       <p class="sub_title">基础脑健康评估</p>
                     </nav-button>
                   </li>
                   <li>
                     <nav-button :to="{path:'/main/test_list/1',query:{name:'认知障碍风险筛查'}}">
-                      <img :src="require('../../static/img/assess_list2.png')">
+                      <img :src="require('../../../static/img/assess_list2.png')">
                       <p class="sub_title">认知障碍风险筛查</p>
                     </nav-button>
 
                   </li>
                   <li>
                    <nav-button :to="{path:'/main/test_list/2',query:{name:'痴呆早期风险预警'}}">
-                     <img :src="require('../../static/img/assess_list3.png')">
+                     <img :src="require('../../../static/img/assess_list3.png')">
                      <p class="sub_title">痴呆早期风险预警</p>
                    </nav-button>
                   </li>
@@ -98,19 +98,19 @@
             <ul class="flex item_list space-between justify-center">
               <li>
                <nav-button :to="{path:'/main/test_list/0',query:{name:'主诉记忆下降'}}">
-                 <img :src="require('../../static/img/ren_zhi_smc.png')">
+                 <img :src="require('../../../static/img/ren_zhi_smc.png')">
                  <p class="sub_title">主诉记忆下降</p>
                </nav-button>
               </li>
               <li>
                <nav-button :to="{path:'/main/test_list/0',query:{name:'轻度认知障碍'}}">
-                 <img :src="require('../../static/img/ren_zhi_mci.png')">
+                 <img :src="require('../../../static/img/ren_zhi_mci.png')">
                  <p class="sub_title">轻度认知障碍</p>
                </nav-button>
               </li>
               <li>
                <nav-button :to="{path:'/main/test_list/0',query:{name:'血管认知障碍'}}">
-                 <img :src="require('../../static/img/ren_zhi_vci.png')">
+                 <img :src="require('../../../static/img/ren_zhi_vci.png')">
                  <p class="sub_title">血管认知障碍</p>
                </nav-button>
               </li>
@@ -121,19 +121,19 @@
             <ul class="flex item_list space-between justify-center">
               <li>
                <nav-button :to="{path:'/main/test_list/0',query:{name:'阿尔兹海默病'}}">
-                 <img :src="require('../../static/img/chi_dai_ad.png')">
+                 <img :src="require('../../../static/img/chi_dai_ad.png')">
                  <p class="sub_title">阿尔兹海默病</p>
                </nav-button>
               </li>
               <li>
                 <nav-button :to="{path:'/main/test_list/0',query:{name:'额颞叶痴呆'}}">
-                  <img :src="require('../../static/img/chi_dai_ftd.png')">
+                  <img :src="require('../../../static/img/chi_dai_ftd.png')">
                   <p class="sub_title">额颞叶痴呆</p>
                 </nav-button>
               </li>
               <li>
                 <nav-button :to="{path:'/main/test_list/0',query:{name:'语义性痴呆'}}">
-                  <img :src="require('../../static/img/chi_dai_sd.png')">
+                  <img :src="require('../../../static/img/chi_dai_sd.png')">
                   <p class="sub_title">语义性痴呆</p>
                 </nav-button>
               </li>
@@ -144,19 +144,19 @@
             <ul class="flex item_list space-between justify-center">
               <li>
                 <nav-button :to="{path:'/main/test_list/0',query:{name:'抑郁'}}">
-                  <img :src="require('../../static/img/shen_jing1.png')">
+                  <img :src="require('../../../static/img/shen_jing1.png')">
                   <p class="sub_title">抑郁</p>
                 </nav-button>
               </li>
               <li>
                 <nav-button :to="{path:'/main/test_list/0',query:{name:'焦虑'}}">
-                  <img :src="require('../../static/img/shen_jing2.png')">
+                  <img :src="require('../../../static/img/shen_jing2.png')">
                   <p class="sub_title">焦虑</p>
                 </nav-button>
               </li>
               <li>
                 <nav-button :to="{path:'/main/test_list/0',query:{name:'情感障碍'}}">
-                  <img :src="require('../../static/img/shen_jing3.png')">
+                  <img :src="require('../../../static/img/shen_jing3.png')">
                   <p class="sub_title">情感障碍</p>
                 </nav-button>
               </li>
@@ -198,7 +198,7 @@
                   <p class="sub_title">逻辑推理</p>
                 </li>
                 <li>
-                 <nav-button to="/assess">
+                 <nav-button :to="{path:'main/tools',query:{name:'认知测评工具库'}}">
                    <icon-fontclass iconName="caidan-gengduo" style="color:#739ff0;"></icon-fontclass>
                    <p class="sub_title">更多</p>
                  </nav-button>
@@ -210,7 +210,7 @@
 </template>
 
 <script>
-    import NavButton from "../components/router-link/src/index.vue";
+    import NavButton from "../../components/router-link/src/index.vue";
 
     export default {components: {NavButton}}
 </script>
