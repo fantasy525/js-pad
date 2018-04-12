@@ -30,7 +30,7 @@
 </style>
 <template>
   <section class="app-main">
-    <NavBar class="nav-bar" v-show="showNavBar">
+    <NavBar class="nav-bar" v-if="showNavBar">
       <breadcrumb separator="&gt;" slot="left">
         <template v-for="(nav,index) in navigations">
 
@@ -72,6 +72,11 @@
         showNavBar(){
           console.log(!(['/home','/assess','/data'].indexOf(this.$route.path)>-1))
           return !(['/home','/assess','/data'].indexOf(this.$route.path)>-1)
+        }
+      },
+      watch: {
+        $route() {
+
         }
       },
       components:{

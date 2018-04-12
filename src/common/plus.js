@@ -3,15 +3,43 @@
  */
 import router from '@/router'
 
-mui.init({//关闭mui的监听事件
-  keyEventBind: {
-    backbutton: false  //关闭back按键监听
-  }
-})
+// mui.init({//关闭mui的监听事件
+//   keyEventBind: {
+//     backbutton: false  //关闭back按键监听
+//   }
+// })
 
 /**
  * 安卓原生返回按钮监听事件
  */
+class JsBridge{
+  constructor(){
+    this.plusReady=[]
+  }
+  init() {
+  }
+  plusOnReady(cb){
+    if(window.plus) {
+      setTimeout(()=>{
+        cb()
+      }, 0);
+    } else {
+      document.addEventListener("plusready", ()=> {
+        cb();
+      }, false);
+    }
+  }
+  toast(message){
+    this.plusOnReady(()=>{
+
+      plus.nativeUI.toast(message, {
+        verticalAlign: 'bottom',
+        duration:2000
+      });
+    })
+
+  }
+}
 function handleButtonBack(){
   let _back_first=null
   // 获取所有Webview窗口
@@ -19,6 +47,7 @@ function handleButtonBack(){
   setTimeout(()=>{
     plus.key.addEventListener('backbutton', function() {
       wvs.canBack(function(e) {
+        console.log(router.currentRoute.path)
         if(e.canBack&&!router.currentRoute.meta.canExit) {
           // alert(router.currentRoute.meta.canBack)
           wvs.back();
@@ -26,7 +55,7 @@ function handleButtonBack(){
           // wvs.close(); //hide,quit
           if(!_back_first){
             _back_first=new Date().getTime()
-            mui.toast('再按一次退出应用')
+           new JsBridge().toast('再按一次退出')
             setTimeout(()=>{
               _back_first=null
             },2000)
@@ -48,16 +77,7 @@ if (window.plus) {
 } else {
   document.addEventListener('plusready', plusReady, false);
 }
-class Plus{
-  constructor(){
 
-  }
-  init(){
-
-  }
-  listenButtonBack(){
-
-  }
-}
+export default new JsBridge()
 
 

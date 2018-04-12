@@ -23,8 +23,8 @@
       <NavBar class="nav-bar">
         <span class="title" slot="left">京师脑博士认知测评系统</span>
         <div class="navbar__tools" slot="right">
-          <icon-fontClass  iconName="youjian" class="message"></icon-fontClass>
-          <icon-fontClass iconName="set" class="setup"></icon-fontClass>
+          <icon-fontclass  iconName="youjian" class="message"></icon-fontclass>
+          <icon-fontclass iconName="set" class="setup"></icon-fontclass>
         </div>
       </NavBar>
       <div class="main-content flex">

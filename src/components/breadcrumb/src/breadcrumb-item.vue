@@ -39,20 +39,19 @@
       },
       inject:['breadcrumb'],
       mounted(){
-
         this.separator=this.breadcrumb.separator
         let self=this
-        console.log('面包屑mounted')
        setTimeout(()=>{//此处必须异步，因为store中navigations的更新是在导航enter时异步处理的
-         if(self.to){
-           console.log('添加点击事件')
-           let link=this.$refs.link
-           link.addEventListener('click',_ => {
-
-             let to=this.to
+         let link=this.$refs.link
+         link.addEventListener('click',_ => {
+           let to=this.to
+           if(self.to){
+             this.$store.dispatch('buttonNav',{value:true})
              self.$router.push(to);
-           })
-         }
+           }
+
+         },false)
+
        },16.7)
       }
     }

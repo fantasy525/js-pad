@@ -293,6 +293,7 @@ body
 
 a
 {
+  display:inline-block;
   text-decoration: none;
 
   color: #007aff;
@@ -300,4 +301,8 @@ a
 a:active
 {
   color: #0062cc;
+}
+h1,h2,h3,h3,p{
+  margin:0;
+  padding:0;
 }

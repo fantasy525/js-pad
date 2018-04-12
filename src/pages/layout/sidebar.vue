@@ -69,10 +69,10 @@
            <li  class="js-menu__item "
                 :class="{'js-menu__item-selected':isActive(item.name)}"
            >
-             <router-link :to="(menu.path+item.path)" class="a-link">
-               <i class="js-menu-icons"><icon-fontClass :iconName="item.meta.icon" class="js-menu-icons"></icon-fontClass></i>
+             <nav-button :to="(menu.path+item.path)" class="a-link">
+               <i class="js-menu-icons"><icon-fontclass :iconName="item.meta.icon" class="js-menu-icons"></icon-fontclass></i>
                <span class="js-menu__item-text">{{item.meta.title}}</span>
-             </router-link>
+             </nav-button>
            </li>
          </template>
         </template>
@@ -89,7 +89,9 @@
 
 <script>
   import {myRoutes} from'@/router'
+  import NavButton from "../../components/router-link/src/index.vue";
     export default {
+      components: {NavButton},
       name:'SideBar',
       data(){
         return{

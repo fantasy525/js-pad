@@ -104,10 +104,10 @@
               <p >脑健康评估</p>
               <p>Brain health assessment</p>
         </div>
-          <icon-fontClass iconName="gengduo-2" class="button-more"></icon-fontClass>
+          <icon-fontclass iconName="gengduo-2" class="button-more"></icon-fontclass>
         </div>
       </nav-button>
-     <router-link to="/">
+     <nav-button to="/">
        <div class="view_item view_item2">
          <div class="item_text">
            <p class="home_item_title">认知测评常用工具</p>
@@ -117,10 +117,10 @@
              <li><router-link to="/assess"><icon-svg iconName="shuxie" class="li-icons"></icon-svg>认知障碍测评（北师大版）</router-link></li>
            </ul>
          </div>
-         <icon-fontClass iconName="gengduo-2" class="button-more"></icon-fontClass>
+         <icon-fontclass iconName="gengduo-2" class="button-more"></icon-fontclass>
        </div>
-     </router-link>
-      <router-link :to="{path:'/main/assess_list/ren_zhi',query:{name:'认知障碍筛查'}}">
+     </nav-button>
+      <nav-button :to="{path:'/main/assess_list/ren_zhi',query:{name:'认知障碍筛查'}}">
         <div class="view_item view_middle">
           <img class="view_item_img" :src="require('../../static/img/home1.png')" >
           <div class="item_text">
@@ -129,8 +129,8 @@
               screening</p>
           </div>
         </div>
-      </router-link >
-      <router-link :to="{path:'/main/assess_list/chi_dai',query:{name:'痴呆筛查'}}">
+      </nav-button >
+      <nav-button :to="{path:'/main/assess_list/chi_dai',query:{name:'痴呆筛查'}}">
         <div class="view_item view_middle">
           <img :src="require('../../static/img/home2.png')" >
           <div class="item_text">
@@ -138,7 +138,7 @@
             <p>Dementia screening</p>
           </div>
         </div>
-      </router-link>
+      </nav-button>
 
 
       <div class="view_item view_middle">
@@ -155,10 +155,10 @@
 
          </div>
          <div class="flex space-around">
-           <span class=""><icon-fontClass iconName="shu-" class="view_icons"></icon-fontClass>认知康复训练</span>
-           <span class=""><icon-fontClass iconName="shu-" class="view_icons"></icon-fontClass>脑智提升训练</span>
+           <span class=""><icon-fontclass iconName="shu-" class="view_icons"></icon-fontclass>认知康复训练</span>
+           <span class=""><icon-fontclass iconName="shu-" class="view_icons"></icon-fontclass>脑智提升训练</span>
          </div>
-         <icon-fontClass iconName="gengduo-2" class="button-more"></icon-fontClass>
+         <icon-fontclass iconName="gengduo-2" class="button-more"></icon-fontclass>
        </div>
      </router-link>
     </div>

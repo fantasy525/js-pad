@@ -9,9 +9,11 @@
     text-align:center;
     height:155px;
     line-height:155px;
+    margin-top:20px;
   }
   .table_wrap{
-
+    padding-right:20px;
+    border-image:-webkit-linear-gradient(to bottom, red, blue) 0 0 20;
   }
   .t-head{
     .table-head{
@@ -26,7 +28,32 @@
   }
   .t-body-wrap{
     height:501px;
-    overflow-y:scroll;
+    overflow-y:auto;
+    &::-webkit-scrollbar-track-piece {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-left: 1px solid rgba(0, 0, 0, 0);/*no*/
+    }
+    &::-webkit-scrollbar {
+      width: 8px;/*no*/
+
+      -webkit-border-radius: 5px;/*no*/
+      -moz-border-radius: 5px;/*no*/
+      border-radius: 5px;/*no*/
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      background-clip: padding-box;
+      -webkit-border-radius: 5px;/*no*/
+      -moz-border-radius: 5px;/*no*/
+      border-radius: 5px;/*no*/
+      min-height: 28px;/*no*/
+    }
+    /*&::-webkit-scrollbar-thumb:hover {*/
+      /*background-color: rgba(0, 0, 0, 0.5);*/
+      /*-webkit-border-radius: 5px;*/
+      /*-moz-border-radius: 5px;*/
+      /*border-radius: 5px;*/
+    /*}*/
   }
   .t-body{
     .tbody{
@@ -44,7 +71,7 @@
 <template>
     <div class="test_list">
         <h2 class="title">
-          基础脑健康评估
+         {{$route.query.name}}
         </h2>
       <div class="table_wrap">
         <table class="t-head">
@@ -130,7 +157,7 @@
        </div>
       </div>
       <p>预计12分钟</p>
-     <p class="flex justify-center "> <nav-button :to="{path:'/main/patient_list/2'}"><button   class="button button_large">下一步</button></nav-button></p>
+     <p class="flex justify-center "> <nav-button :to="{path:'/main/patient_list/2',query:{name:'患者列表'}}"><button   class="button button_large">下一步</button></nav-button></p>
     </div>
 </template>
 

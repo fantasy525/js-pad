@@ -6,7 +6,7 @@ import IconSvg from '@/components/icon-svg'
 import IconFontClass from '@/components/icon-font-class'
 //全局注册
 Vue.component('icon-svg',IconSvg)
-Vue.component('icon-fontClass',IconFontClass)
+Vue.component('icon-fontclass',IconFontClass)
 /**
  *  通过webpack的require.context功能来引入某个文件夹下的文件
  * @param requireContext
