@@ -34,7 +34,7 @@
       border-left: 1px solid rgba(0, 0, 0, 0);/*no*/
     }
     &::-webkit-scrollbar {
-      width: 8px;/*no*/
+      width: 10px;/*no*/
 
       -webkit-border-radius: 5px;/*no*/
       -moz-border-radius: 5px;/*no*/
