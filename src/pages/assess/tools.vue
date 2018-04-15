@@ -64,10 +64,12 @@
            <icon-fontclass iconName="brain__easyic" style="color:#fb8c83;"></icon-fontclass>
            <p class="sub_title">记忆力</p>
          </li>
-       </nav-button>
+       </nav-button >
         <li>
-          <icon-fontclass iconName="yanjing-2" style="color:#83a5fb;"></icon-fontclass>
-          <p class="sub_title">注意力</p>
+         <nav-button :to="{path:'/main/test_list/2',query:{name:'注意力'}}">
+           <icon-fontclass iconName="yanjing-2" style="color:#83a5fb;"></icon-fontclass>
+           <p class="sub_title">注意力</p>
+         </nav-button>
         </li>
         <li>
           <icon-fontclass iconName="zhihangli" style="color:#fbc783;"></icon-fontclass>

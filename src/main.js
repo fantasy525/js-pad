@@ -14,12 +14,15 @@ import {BreadcrumbItem,Breadcrumb} from'./components/breadcrumb'
 import Radio from './components/radio'
 import {CheckBox,CheckBoxGroup }from './components/checkbox'
 import NavButton from './components/router-link'
+import {Tabs,TabsNav} from './components/tabs'
 Vue.use(NavButton)
 Vue.use(BreadcrumbItem)
 Vue.use(Breadcrumb)
 Vue.use(Radio)
 Vue.use(CheckBox)
 Vue.use(CheckBoxGroup)
+Vue.use(Tabs)
+Vue.use(TabsNav)
 //  import './assets/css/mui.scss'
 
 import {plusReady} from "./common/plus";

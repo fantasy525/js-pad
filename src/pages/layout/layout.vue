@@ -13,6 +13,9 @@
       height:100%;
 
     }
+    .main-container{
+      flex: 1;
+    }
   }
 
 }
