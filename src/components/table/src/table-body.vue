@@ -1,96 +1,26 @@
 <template>
     <div class="my-table-body-wrap">
-      <scroll-view class="scroll" :style="{height:height}">
+      <scroll-view class="scroll" :pullUpLoad="true" :style="{height:height}" @pullingUp="loadData">
         <table width="100%" class="my-table-body">
           <colgroup>
-            <col width="100">   <!--序号-->
-            <col width="150"><!--姓名-->
-            <col width="100"><!--性别-->
-            <col width="100"><!--年龄-->
-            <col width="350"><!--评估名称-->
-            <col width="100"><!--得分-->
-            <col width="300"><!--评估来源-->
-            <col width="200"><!--评估时间-->
-            <col width="150"><!--评估人-->
+            <col :width="colItem.width" v-for="(colItem,index) in columns">   <!--序号-->
+
           </colgroup>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
+          <tr v-for="(item ,index ) in lists" :key="index">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.sex}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.assessName}}（简版）</td>
+            <td>{{item.score}}</td>
+            <td>{{item.assessSource}}</td>
+            <td>{{item.assessTime}}.09.14</td>
+            <td>{{item.assessMan}}</td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>王二小</td>
-            <td>男</td>
-            <td>12</td>
-            <td>图片记忆学习测验（简版）</td>
-            <td>50</td>
-            <td>轻度认知障碍筛查</td>
-            <td>2018.09.14</td>
-            <td>王麻子</td>
-          </tr>
+
+
+
           </tbody>
         </table>
       </scroll-view>
@@ -100,9 +30,193 @@
 <script>
     export default {
       name:'MyTableBody',
+      data(){
+        return {
+          lists:[
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            },
+            {
+              id:1,
+              name:'张三',
+              sex:'男',
+              age:23,
+              assessName:'图片记忆测验',
+              score:40,
+              assessSource:'基础脑健康评估',
+              assessTime:'2018.09.12',
+              assessMan:'张三'
+            }
+          ]
+        }
+      },
+      props:{
+        columns:{
+          type:Array,
+          default(){
+            return []
+          }
+        }
+      },
       computed:{
         height(){
           return this.$parent.height?this.$parent.height+'px':'auto'
+        }
+      },
+      methods:{
+        loadData(){
+          console.log('加载更多')
         }
       }
     }

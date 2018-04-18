@@ -330,7 +330,25 @@
             <my-table-column label="姓名" width="150">
 
             </my-table-column>
+            <my-table-column label="性别" width="100">
+
+            </my-table-column>
             <my-table-column label="年龄" width="100">
+
+            </my-table-column>
+            <my-table-column label="评估名称" width="300">
+
+            </my-table-column>
+            <my-table-column label="得分" width="100">
+
+            </my-table-column>
+            <my-table-column label="评估来源" width="300">
+
+            </my-table-column>
+            <my-table-column label="评估时间" width="150">
+
+            </my-table-column>
+            <my-table-column label="评估人" width="100">
 
             </my-table-column>
           </my-table>
