@@ -1,7 +1,9 @@
 <style lang="scss" scoped>
   .assess_list{
-
-    overflow-x: scroll;
+    padding-bottom:30px;
+    /deep/ .el-scrollbar__bar{
+      opacity:1;
+    }
     padding-top:72px;
     .list_item{
       display:inline-block;
@@ -79,28 +81,30 @@
 <template>
     <div>
       <template v-if="isAssess">
-        <div class="assess_list flex" ref="list">
-          <nav-button
-            class="list_item router_link_keydown"
-            :to="{path:'/main/test_list/'+index,query:{name:item.title}}"
-            v-for="(item,index) in lists"
-            :key="index"
+       <el-scrollbar class="assess_list" style="width:100%;">
+         <div class=" flex" ref="list">
+           <nav-button
+             class="list_item router_link_keydown"
+             :to="{path:'/main/test_list/'+index,query:{name:item.title}}"
+             v-for="(item,index) in lists"
+             :key="index"
 
-          >
-            <div>
-              <div class="icon_wrap flex align-center justify-center">
-                <img :src="item.imgUrl" alt="">
-              </div>
-              <p class="list_item_large">
-                {{item.title}}
-              </p>
-              <p class="list_item_small">预计{{item.time}}分钟</p>
-              <section>
-                {{item.detail}}
-              </section>
-            </div>
-          </nav-button>
-        </div>
+           >
+             <div>
+               <div class="icon_wrap flex align-center justify-center">
+                 <img :src="item.imgUrl" alt="">
+               </div>
+               <p class="list_item_large">
+                 {{item.title}}
+               </p>
+               <p class="list_item_small">预计{{item.time}}分钟</p>
+               <section>
+                 {{item.detail}}
+               </section>
+             </div>
+           </nav-button>
+         </div>
+       </el-scrollbar>
       </template>
       <div v-else class="game_trains">
         <div class="train">
@@ -149,7 +153,7 @@
         }
       },
       created(){
-       const data=require('../mock/assessL_list.json')
+       const data=require('../mock/assessL_list.js')
         this.lists=data[this.$route.params.menu]
         this.type=this.$route.params.menu
 

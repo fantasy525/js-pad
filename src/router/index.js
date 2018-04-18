@@ -123,6 +123,10 @@ const pageRoutes=[
         }
       }
     ]
+  },
+  {
+    path:'/test',
+    component:_import('data')
   }
 ]
 export const myRoutes=[

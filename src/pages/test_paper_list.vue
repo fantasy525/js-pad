@@ -28,32 +28,35 @@
   }
   .t-body-wrap{
     height:501px;
-    overflow-y:auto;
-    &::-webkit-scrollbar-track-piece {
-      background-color: rgba(0, 0, 0, 0.2);
-      border-left: 1px solid rgba(0, 0, 0, 0);/*no*/
+    /deep/ .el-scrollbar__bar{
+      opacity:1;
     }
-    &::-webkit-scrollbar {
-      width: 10px;/*no*/
-
-      -webkit-border-radius: 5px;/*no*/
-      -moz-border-radius: 5px;/*no*/
-      border-radius: 5px;/*no*/
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.3);
-      background-clip: padding-box;
-      -webkit-border-radius: 5px;/*no*/
-      -moz-border-radius: 5px;/*no*/
-      border-radius: 5px;/*no*/
-      min-height: 28px;/*no*/
-    }
-    /*&::-webkit-scrollbar-thumb:hover {*/
-      /*background-color: rgba(0, 0, 0, 0.5);*/
-      /*-webkit-border-radius: 5px;*/
-      /*-moz-border-radius: 5px;*/
-      /*border-radius: 5px;*/
+   /*overflow:hidden;*/
+    /*&::-webkit-scrollbar-track-piece {*/
+      /*background-color: rgba(0, 0, 0, 0.2);*/
+      /*border-left: 1px solid rgba(0, 0, 0, 0);!*no*!*/
     /*}*/
+    /*&::-webkit-scrollbar {*/
+      /*width: 10px;!*no*!*/
+
+      /*-webkit-border-radius: 5px;!*no*!*/
+      /*-moz-border-radius: 5px;!*no*!*/
+      /*border-radius: 5px;!*no*!*/
+    /*}*/
+    /*&::-webkit-scrollbar-thumb {*/
+      /*background-color: rgba(0, 0, 0, 0.3);*/
+      /*background-clip: padding-box;*/
+      /*-webkit-border-radius: 5px;!*no*!*/
+      /*-moz-border-radius: 5px;!*no*!*/
+      /*border-radius: 5px;!*no*!*/
+      /*min-height: 28px;!*no*!*/
+    /*}*/
+    /*!*&::-webkit-scrollbar-thumb:hover {*!*/
+      /*!*background-color: rgba(0, 0, 0, 0.5);*!*/
+      /*!*-webkit-border-radius: 5px;*!*/
+      /*!*-moz-border-radius: 5px;*!*/
+      /*!*border-radius: 5px;*!*/
+    /*!*}*!*/
   }
   .t-body{
     .tbody{
@@ -81,79 +84,81 @@
           </tr>
           </thead>
         </table>
-       <div class="t-body-wrap">
-         <table class="t-body">
-           <tbody class="tbody">
-             <tr>
-               <td width="530">图片记忆测试（简版）<img :src="require('../../static/img/jianjie.png')" alt=""></td>
-               <td width="460">5分钟</td>
-               <td width="520">
-                 <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
-               </td>
-             </tr>
-             <tr>
-               <td>图片记忆测试（简版）</td><td>5分钟</td><td>
+       <div >
+        <el-scrollbar class="t-body-wrap" >
+          <table class="t-body">
+            <tbody class="tbody">
+            <tr>
+              <td width="530">图片记忆测试（简版）<img :src="require('../../static/img/jianjie.png')" alt=""></td>
+              <td width="460">5分钟</td>
+              <td width="520">
+                <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+              </td>
+            </tr>
+            <tr>
+              <td>图片记忆测试（简版）</td><td>5分钟</td><td>
 
-               <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
-
-
-
-             </td>
-
-             </tr>
-             <tr>
-               <td>图片记忆测试（简版）</td><td>5分钟</td><td>
-
-               <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+              <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
 
 
 
-             </td>
+            </td>
 
-             </tr>
-             <tr>
-               <td>图片记忆测试（简版）</td><td>5分钟</td><td>
+            </tr>
+            <tr>
+              <td>图片记忆测试（简版）</td><td>5分钟</td><td>
 
-               <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
-
-
-
-             </td>
-
-             </tr>
-             <tr>
-               <td>图片记忆测试（简版）</td><td>5分钟</td><td>
-
-               <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+              <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
 
 
 
-             </td>
+            </td>
 
-             </tr>
-             <tr>
-               <td>图片记忆测试（简版）</td><td>5分钟</td><td>
+            </tr>
+            <tr>
+              <td>图片记忆测试（简版）</td><td>5分钟</td><td>
 
-               <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
-
-
-
-             </td>
-
-             </tr>
-             <tr>
-               <td>图片记忆测试（简版）</td><td>5分钟</td><td>
-
-               <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+              <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
 
 
 
-             </td>
+            </td>
 
-             </tr>
+            </tr>
+            <tr>
+              <td>图片记忆测试（简版）</td><td>5分钟</td><td>
 
-           </tbody>
-         </table>
+              <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+
+
+
+            </td>
+
+            </tr>
+            <tr>
+              <td>图片记忆测试（简版）</td><td>5分钟</td><td>
+
+              <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+
+
+
+            </td>
+
+            </tr>
+            <tr>
+              <td>图片记忆测试（简版）</td><td>5分钟</td><td>
+
+              <my-checkbox v-model="list" trueLabel="0" ></my-checkbox>
+
+
+
+            </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </el-scrollbar>
        </div>
       </div>
       <p>预计12分钟</p>

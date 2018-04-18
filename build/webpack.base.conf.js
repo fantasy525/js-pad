@@ -4,6 +4,8 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack =require('webpack')
+const env = require('../config/prod.env')
+const IncludeAssets= require('html-webpack-include-assets-plugin')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -55,7 +57,7 @@ module.exports = {
         loader: 'url-loader',
         exclude: [resolve('src/icons')],
         options: {
-          limit: 10000,
+          limit: 8192,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
@@ -81,6 +83,12 @@ module.exports = {
       // }
     ]
   },
+  plugins:[
+    new IncludeAssets({
+      assets:[process.env.NODE_ENV==='development'?'static/flexible.js':'static/flexible.js'],
+      append:false
+    })
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

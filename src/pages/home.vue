@@ -77,8 +77,9 @@
     }
 
     .view_item6{
-      width:98%;
+      width:98.6%;
       height:240px;
+      margin-left:10px;
       margin-bottom:0;
       padding-top:40px;
       .view_icons{

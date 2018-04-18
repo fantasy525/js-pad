@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App'
+
+
 import "./assets/css/new_mui.scss";
 import "./assets/css/common.scss";
+import "./assets/css/uncode_icon.scss"
 import router from './router'
 import store from './store'
 import Http from './common/http'
@@ -15,6 +18,9 @@ import Radio from './components/radio'
 import {CheckBox,CheckBoxGroup }from './components/checkbox'
 import NavButton from './components/router-link'
 import {Tabs,TabsNav} from './components/tabs'
+import {Select,SelectItem} from './components/selects'
+import ScrollView from './components/scroll-view'
+import {MyTable,MyTableColumn} from './components/table'
 Vue.use(NavButton)
 Vue.use(BreadcrumbItem)
 Vue.use(Breadcrumb)
@@ -23,6 +29,15 @@ Vue.use(CheckBox)
 Vue.use(CheckBoxGroup)
 Vue.use(Tabs)
 Vue.use(TabsNav)
+Vue.use(Select)
+Vue.use(SelectItem)
+Vue.use(ScrollView)
+Vue.use(MyTable)
+Vue.use(MyTableColumn)
+//element-ui组件
+import {Scrollbar} from 'element-ui'
+Vue.use(Scrollbar)
+
 //  import './assets/css/mui.scss'
 
 import {plusReady} from "./common/plus";
@@ -110,4 +125,5 @@ const vm=new Vue({
   store,
   render: h => h(App)
 })
+
 
