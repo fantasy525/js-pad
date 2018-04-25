@@ -15,16 +15,20 @@ import native from './common/plus'
 //导出自定义组件
 import {BreadcrumbItem,Breadcrumb} from'./components/breadcrumb'
 import Radio from './components/radio'
+import RadioGroup from './components/radioGroup'
 import {CheckBox,CheckBoxGroup }from './components/checkbox'
 import NavButton from './components/router-link'
 import {Tabs,TabsNav} from './components/tabs'
 import {Select,SelectItem} from './components/selects'
 import ScrollView from './components/scroll-view'
 import {MyTable,MyTableColumn} from './components/table'
+import ElTransfer from './components/transfer'
+import './components/transfer/src/index.scss'
 Vue.use(NavButton)
 Vue.use(BreadcrumbItem)
 Vue.use(Breadcrumb)
 Vue.use(Radio)
+Vue.use(RadioGroup)
 Vue.use(CheckBox)
 Vue.use(CheckBoxGroup)
 Vue.use(Tabs)
@@ -34,8 +38,10 @@ Vue.use(SelectItem)
 Vue.use(ScrollView)
 Vue.use(MyTable)
 Vue.use(MyTableColumn)
+Vue.use(ElTransfer)
+
 //element-ui组件
-import {Scrollbar} from 'element-ui'
+import Scrollbar from './components/scrollbar'
 Vue.use(Scrollbar)
 
 //  import './assets/css/mui.scss'

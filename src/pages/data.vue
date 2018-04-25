@@ -323,7 +323,7 @@
         </button>
       </div>
       <div class="my-tables_wrap">
-          <my-table height="680">
+          <my-table height="680" :data="databaseLists" ref="myTable">
             <my-table-column label="序号" width="100">
 
             </my-table-column>
@@ -368,7 +368,7 @@
     name:'Data',
     data(){
       return{
-        curentTab:'database',
+        curentTab:'info',
         lists:[
           [
             {
@@ -415,7 +415,174 @@
           age:'',
           edu:'',
           disease:''
-        }
+        },
+        databaseLists:[
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          },
+          {
+            id:1,
+            name:'张三',
+            sex:'男',
+            age:23,
+            assessName:'图片记忆测验',
+            score:40,
+            assessSource:'基础脑健康评估',
+            assessTime:'2018.09.12',
+            assessMan:'张三'
+          }
+        ]
       }
     },
     computed:{
@@ -671,7 +838,9 @@
     },
     watch:{
       curentTab(newVal,oldVal){
-
+        setTimeout(()=>{
+          this.$refs.myTable.refreshTablel()
+        },16.7)
 
       }
     }

@@ -58,7 +58,7 @@ export const menuRoutes=[
       {
         name:'sci_res',
         path:'sci_res',
-        component:_import('data'),
+        component:_import('science_res/science'),
         meta:{
           icon:'kexue',
           title:'科研',
@@ -121,6 +121,20 @@ const pageRoutes=[
         component:_import('assess/tools'),
         meta:{
         }
+      },
+      {
+        name:'analyze',
+        path:'analyze',
+        component:_import('science_res/analyze')
+      },
+      {
+        name:'variable_select',
+        path:'variable_select',
+        component:_import('science_res/variable_select')
+      },{
+        name:'variable_result',
+        path:'variable_result',
+        component:_import('science_res/variable_result')
       }
     ]
   },

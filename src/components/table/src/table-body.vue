@@ -1,6 +1,12 @@
 <template>
     <div class="my-table-body-wrap">
-      <scroll-view class="scroll" :pullUpLoad="true" :style="{height:height}" @pullingUp="loadData">
+      <scroll-view class="scroll"
+                   ref="scroll"
+                   :pullUpLoad="{threshold:-50}"
+                   :pullDownRefresh="true"
+                   :style="{height:height}"
+                   @pullingUp="loadData"
+                    @pullingDown="reloadData">
         <table width="100%" class="my-table-body">
           <colgroup>
             <col :width="colItem.width" v-for="(colItem,index) in columns">   <!--序号-->
@@ -18,9 +24,6 @@
             <td>{{item.assessTime}}.09.14</td>
             <td>{{item.assessMan}}</td>
           </tr>
-
-
-
           </tbody>
         </table>
       </scroll-view>
@@ -28,180 +31,29 @@
 </template>
 
 <script>
+  import Bus from './bus'
     export default {
       name:'MyTableBody',
       data(){
         return {
-          lists:[
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            },
-            {
-              id:1,
-              name:'张三',
-              sex:'男',
-              age:23,
-              assessName:'图片记忆测验',
-              score:40,
-              assessSource:'基础脑健康评估',
-              assessTime:'2018.09.12',
-              assessMan:'张三'
-            }
-          ]
+            lists:[]
         }
       },
+      created(){
+        let self=this
+        Bus.$on('get-data',(data)=>{
+
+          console.log('getData',data)
+          self.lists=data
+        })
+      },
       props:{
+        props:{
+          type:Array,
+          default(){
+            return []
+          }
+        },
         columns:{
           type:Array,
           default(){
@@ -216,7 +68,14 @@
       },
       methods:{
         loadData(){
-          console.log('加载更多')
+         setTimeout(()=>{
+           this.$refs.scroll.forceUpdate()
+         },2000)
+        },
+        reloadData(){
+          setTimeout(()=>{
+            this.$refs.scroll.forceUpdate()
+          },2000)
         }
       }
     }
